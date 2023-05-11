@@ -1,0 +1,191 @@
+body {
+    font-family: "Book Antiqua", sans-serif;
+}
+
+
+img.wdth{
+    width: 500px;
+    height: 500px;
+    }
+
+.sidenav {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #47117c;
+    overflow-x: hidden;
+    padding-top: 40px;
+}
+
+.sidenav a {
+    padding: 6px 8px 16px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f5a316;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 180px;/* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.container{
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.products{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.products__item{
+    position: relative;
+    width: 30%;
+}
+
+.products__item:hover .products__img img{
+    opacity: 0.6;
+}
+.products__item:hover .products__text{
+    opacity: 1;
+}
+.products__img{
+    width: 450px;
+    height: 450px;
+    background: #000000;
+}
+.products__img img{
+    width: 450px;
+    height: 450px;
+    transition: opacity .01s linear;
+}
+
+.products__text{
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    font-weight: 900;
+    opacity: 0;
+    transform: translate3d(0,-325%,0);
+    transition: opacity .1s linear;
+}
+
+.contact_info{
+  font-size: 24px;
+  text-align: center;
+  color: #4f4f4f;
+}
+
+.about_info{
+  margin-top:150px;
+  font-size: 30px;
+  text-align: center;
+  color: #4f4f4f;
+
+}
+
+/* Validation + TG_Bot notification */
+
+.container-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+}
+
+.form{
+    width: 650px;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #ccc;
+    font-family: sans-serif;
+}
+
+.form__input,
+.form__button{font-family: sans-serif;}
+
+.form__title{
+    text-align: center;
+
+    font-weight: normal;
+    margin-bottom: 32px;
+}
+
+.form__group{
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.form__label{
+    position: absolute;
+    font-size: 22px;
+    top:0;
+    z-index: -1;
+    color: #9e9e9e;
+    transition: 0.3s;
+}
+
+.form__input{
+    width: 100%;
+    font-size: 22px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: transparent;
+    outline: none;
+    transition: 0.3s;
+}
+.form__input:focus{
+    border-bottom: 1px solid #1a73a8;
+}
+
+
+
+.form__button{
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #47117c;
+}
+
+.form__button:focus,
+.form__button:hover{
+    background-color: #6118ab;
+}
+
+
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown) ~ .form__label{
+    top:-18px;
+    font-size: 18px;
+}
+
+form .error {
+    position:relative;
+    z-index:-1;
+    font-size: 16px;
+    color: #eb1616;
+  }
+

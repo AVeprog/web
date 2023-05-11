@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static "/css/style.css" %}">
+        <title>L.A.STORE</title>
+    </head>
+<body>
+
+<div class="sidenav">
+  <a href="./valid.html" id="nav-valid">SIGN IN</a>
+  <a href="./index.html" id="nav-products">PRODUCTS</a>
+  <a href="./contact.html" id="nav-contact">CONTACT</a>
+  <a href="./about.html" id="nav-about">ABOUT</a>
+  <a href="./feedback.html" id="nav-feedback">FEEDBACK</a>
+    <div>
+        <button onclick="translateToRussian()">RU</button>
+        <button onclick="translateToEnglish()">EN</button>
+    </div>
+</div>
+
+<div class="main">
+    <div class="container">
+        <h1 align="center">L.A.STORE</h1>
+        <p align = "center">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5a6f0a312e4ad538c53468aa6f4d5f0c75a7bba5ed0b482c9c014c75aa2c9d8b&amp;width=1100&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script></p>
+        <div class="contact_info ">
+            <strong id="pickup">САМОВЫВОЗ:</strong>
+            <p id="inner-pickup"><br>
+            Москва, Зеленоград, ул.Юности, 13
+            <br>
+            Понедельник-пятница: 15:00-21:00
+            <br>
+            Суббота: 16:00-21:00
+            <br>
+            <em>работаем в тестовом режиме</em></p>
+        </div>
+
+        <div align="center">
+            <a href="https://www.instagram.com/altrntv_/"><img src="{% static "img/insta.png" %}" alt=""></a>
+            <a href="https://vk.com/ave_406"><img src="{% static "img/vk.png" %}" alt=""></a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const russianLanguage = {
+        "nav-products": "ТОВАРЫ",
+        "nav-contact": "КОНТАКТЫ",
+        "nav-about": "О НАС",
+        "nav-feedback": "ОТЗЫВЫ",
+        "nav-valid": "ВОЙТИ",
+        "pickup": "САМОВЫВОЗ:",
+        "inner-pickup": "\n" +
+            "            Москва, Зеленоград, ул.Юности, 13\n" +
+
+            "            Понедельник-пятница: 15:00-21:00\n" +
+
+            "            Суббота: 16:00-21:00\n" +
+
+            "            работаем в тестовом режиме",
+
+    };
+
+    const englishLanguage = {
+        "nav-products": "PRODUCTS",
+        "nav-contact": "CONTACT",
+        "nav-about": "ABOUT",
+        "nav-feedback": "FEEDBACK",
+        "nav-valid": "SIGN IN",
+        "pickup": "PICK UP:",
+        "inner-pickup": "\n" +
+            "            Moscow, Zelenograd, Yunosti str., 13\n" +
+
+            "            Monday-Friday: 15:00-21:00\n" +
+
+            "            Saturday: 16:00-21:00\n" +
+
+            "            we are working in test mode",
+    };
+
+    const russianLocale = "ru-RU";
+    const englishLocale = "en-US";
+
+    const translations = {
+        "ru-RU": russianLanguage,
+        "en-US": englishLanguage,
+    };
+
+
+    function translate(locale) {
+        for (let key in translations[locale]) {
+            document.getElementById(key).innerText = translations[locale][key];
+        }
+
+        localStorage.setItem('Lang', locale);
+    }
+
+    function translateToRussian() {
+        translate(russianLocale);
+    }
+
+    function translateToEnglish() {
+        translate(englishLocale);
+    }
+
+    if(localStorage.getItem('Lang') == "ru-RU"){
+        translateToRussian();
+    }
+    else {
+        translateToEnglish();
+    }
+</script>
+
+</body>
+</html>
